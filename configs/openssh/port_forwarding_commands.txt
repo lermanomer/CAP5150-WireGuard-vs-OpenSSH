@@ -1,0 +1,74 @@
+OpenSSH Local Port-Forwarding Configuration
+===========================================
+
+OpenSSH provided access to individual internal services through
+local port forwarding on the remote client.
+
+Gateway:
+10.0.2.4
+
+Internal server:
+10.20.0.10
+
+HTTP Service Forwarding
+-----------------------
+
+Resource 1:
+Local port 9001 -> 10.20.0.10:8001
+
+Resource 2:
+Local port 9002 -> 10.20.0.10:8002
+
+Resource 3:
+Local port 9003 -> 10.20.0.10:8003
+
+Resource 4:
+Local port 9004 -> 10.20.0.10:8004
+
+Resource 5:
+Local port 9005 -> 10.20.0.10:8005
+
+Example forwarding command:
+
+ssh -fN -L 9001:10.20.0.10:8001 <USER>@10.0.2.4
+
+The same command format was used for Resources 2-5 by changing
+the local and destination ports.
+
+Access-Control Scenarios
+------------------------
+
+Baseline:
+Forward Resource 1 only.
+
+Expand from 1 to 3 services:
+Forward Resources 1, 2, and 3.
+
+Revoke one service:
+Remove the Resource 2 forwarding tunnel while retaining
+Resources 1 and 3.
+
+Expand to all 5 services:
+Create forwarding tunnels for Resources 1 through 5.
+
+Performance Testing
+-------------------
+
+iperf3 forwarding:
+
+Local port 9201 -> 10.20.0.10:5201
+
+Example:
+
+ssh -fN -L 9201:10.20.0.10:5201 <USER>@10.0.2.4
+
+TCP round-trip testing used the same local-forwarding approach
+to reach the TCP echo service on the internal server.
+
+Verification
+------------
+
+After each access change, the remote client tested the intended
+services to confirm that authorized resources were reachable.
+
+Supporting screenshots are available in the evidence folders.
