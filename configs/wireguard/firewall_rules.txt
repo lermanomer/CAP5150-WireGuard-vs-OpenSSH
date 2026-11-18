@@ -1,0 +1,46 @@
+WireGuard Gateway Access-Control Rules
+======================================
+
+Internal server:
+10.20.0.10
+
+Internal services:
+Resource 1 - TCP port 8001
+Resource 2 - TCP port 8002
+Resource 3 - TCP port 8003
+Resource 4 - TCP port 8004
+Resource 5 - TCP port 8005
+
+The WireGuard tunnel provided network connectivity to the internal
+10.20.0.0/24 network. Access to individual services was controlled
+using firewall rules on the gateway.
+
+Access-Control Scenarios
+------------------------
+
+Baseline:
+Allow Resource 1 (TCP 8001)
+Block Resources 2-5
+
+Expand from 1 to 3 services:
+Allow Resources 1, 2, and 3
+Block Resources 4 and 5
+
+Revoke one service:
+Allow Resources 1 and 3
+Block Resources 2, 4, and 5
+
+Expand to all 5 services:
+Allow Resources 1, 2, 3, 4, and 5
+
+Verification
+------------
+
+After each configuration change, the remote client tested the
+authorized services to confirm that they were reachable. Services
+that were intended to remain blocked were also tested to confirm
+that access was denied.
+
+Supporting screenshots of the gateway firewall rules and access
+verification are available in the evidence/configuration and
+evidence/administrative folders.
