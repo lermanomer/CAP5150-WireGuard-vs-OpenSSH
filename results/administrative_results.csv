@@ -1,0 +1,5 @@
+Scenario,WireGuard_Mean,OpenSSH_Mean,Number_of_Trials
+Initial_Setup,12_minutes,5_minutes,1
+Expand_1_to_3_Services,30.4_seconds,42.1_seconds,3
+Revoke_1_Service,23.7_seconds,16.3_seconds,3
+Expand_to_5_Services,35.7_seconds,49.3_seconds,3
