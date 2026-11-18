@@ -1,0 +1,11 @@
+Method,Trial,HTTP_Response_Time_ms
+WireGuard,1,51
+WireGuard,2,23
+WireGuard,3,21
+WireGuard,4,18
+WireGuard,5,87
+OpenSSH,1,122
+OpenSSH,2,55
+OpenSSH,3,59
+OpenSSH,4,57
+OpenSSH,5,54
