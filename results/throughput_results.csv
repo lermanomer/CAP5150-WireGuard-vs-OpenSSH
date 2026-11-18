@@ -1,0 +1,7 @@
+Method,Trial,Receiver_Throughput_Mbit_s
+WireGuard,1,171
+WireGuard,2,140
+WireGuard,3,140
+OpenSSH,1,252
+OpenSSH,2,274
+OpenSSH,3,264
